@@ -3,12 +3,16 @@ package model;
 import java.util.Objects;
 
 public class Student {
-    private String name;
-    private String id;
+    protected String name;
+    protected String id;
 
     public Student(String name, String id) {
         this.name = name;
         this.id = id;
+    }
+
+    public Student() {
+
     }
 
     public String getId() {
