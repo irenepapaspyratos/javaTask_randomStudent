@@ -13,10 +13,13 @@ public class ComputerScienceStudent extends Student{
         this.favoriteProgrammingLanguage = "None";
     }
 
+
+
     @Override
     public String getSubject() {
         return "ComputerScience";
     }
+
     @Override
     public String toString() {
         return "ComputerScienceStudent{" +
@@ -25,4 +28,5 @@ public class ComputerScienceStudent extends Student{
                 ", id='" + id + '\'' +
                 '}';
     }
+
 }
