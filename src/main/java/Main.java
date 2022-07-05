@@ -14,7 +14,6 @@ public class Main {
 
         ComputerScienceStudent study5 = new ComputerScienceStudent("Wicky", "f2", "PHP");
 
-
         Student[] studentsArray = {study1, study2, study3, study4};
         StudentDB studentDb = new StudentDB (studentsArray);
 
@@ -24,7 +23,13 @@ public class Main {
         System.out.println(studentDb);
         System.out.println(Arrays.toString(studentDb.addStudent(new ComputerScienceStudent("Felix", "m3"))));
         System.out.println(studentDb);
+        System.out.println(study5);
 
+        study2.setAddress("Buxtehuder Deich");
+        study5.setIdNumber(80677084);
+
+        System.out.println(study2.getAddress());
+        System.out.println(study5.getIdentityCardNumber());
     }
 
 }
