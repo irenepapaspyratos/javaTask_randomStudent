@@ -6,17 +6,23 @@ public class StudentDB {
 
     private Student[] allStudents;
 
-    public StudentDB (Student[] studentArray) {
-        this.allStudents = studentArray;
+    public StudentDB (Student[] allStudents) {
+        this.allStudents = allStudents;
     }
 
     public Student[] getAllStudents() {
         return this.allStudents;
     }
 
+    public Student randomStudent() {
+        int lowerBound = 0;
+        int upperBound = this.allStudents.length;
+        int random = (int)(Math.random() * upperBound - lowerBound) + lowerBound;
+        return this.allStudents[random];
+    }
+
     @Override
     public String toString() {
-        // macht automatisch eckige Klammern
-        return Arrays.toString(allStudents);
+        return Arrays.toString(this.allStudents);
     }
 }

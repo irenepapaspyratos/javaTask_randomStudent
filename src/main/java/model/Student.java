@@ -1,8 +1,8 @@
 package model;
 
 public class Student {
-    String name;
-    String id;
+    private String name;
+    private String id;
 
     public Student(String name, String id) {
         this.name = name;

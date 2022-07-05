@@ -2,6 +2,7 @@ import model.Student;
 
 public class Main {
 
+
     public static void main(String[] args) {
         Student study1 = new Student("Helga", "f1");
         Student study2 = new Student("Hägar", "m1");
@@ -12,6 +13,7 @@ public class Main {
         StudentDB studentDb = new StudentDB (studentsArray);
 
         System.out.println(studentDb);
-
+        System.out.println(studentDb.randomStudent());
     }
+
 }
