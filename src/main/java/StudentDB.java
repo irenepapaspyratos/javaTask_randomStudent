@@ -11,35 +11,35 @@ public class StudentDB {
     }
 
     public Student[] getAllStudents() {
-        return this.allStudents;
+        return allStudents;
     }
 
     public Student randomStudent() {
-        int upperBound = this.allStudents.length;
+        int upperBound = allStudents.length;
         int random = (int) (Math.random() * upperBound);
-        return this.allStudents[random];
+        return allStudents[random];
     }
 
     public Student[] deleteStudent(String studentIdToDelete) {
-        this.allStudents = Arrays.stream(this.getAllStudents()).filter(student ->
+        allStudents = Arrays.stream(this.getAllStudents()).filter(student ->
                 student.getId() != studentIdToDelete).toArray(curry -> new Student[curry]);
-        return (this.allStudents);
+        return (allStudents);
     }
 
     public Student[] addStudent(Student student) {
-        Student[] newArray = new Student[this.allStudents.length +1];
+        Student[] newArray = new Student[allStudents.length +1];
         int counter = 0;
-        for( Student abc : this.allStudents) {
+        for( Student abc : allStudents) {
             newArray[counter] = abc;
             counter++;
         }
         newArray[counter] = student;
-        this.allStudents = newArray;
-        return (this.allStudents);
+        allStudents = newArray;
+        return (allStudents);
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(this.allStudents);
+        return Arrays.toString(allStudents);
     }
 }
