@@ -22,8 +22,20 @@ public class StudentDB {
 
     public Student[] deleteStudent(String studentIdToDelete) {
         this.allStudents = Arrays.stream(this.getAllStudents()).filter(student ->
-                student.getId() != studentIdToDelete).toArray(studentArray -> new Student[studentArray]);
-        return(this.allStudents);
+                student.getId() != studentIdToDelete).toArray(curry -> new Student[curry]);
+        return (this.allStudents);
+    }
+
+    public Student[] addStudent(Student student) {
+        Student[] newArray = new Student[this.allStudents.length +1];
+        int counter = 0;
+        for( Student abc : this.allStudents) {
+            newArray[counter] = abc;
+            counter++;
+        }
+        newArray[counter] = student;
+        this.allStudents = newArray;
+        return (this.allStudents);
     }
 
     @Override
