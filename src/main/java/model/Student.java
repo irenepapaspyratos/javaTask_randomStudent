@@ -2,9 +2,11 @@ package model;
 
 import java.util.Objects;
 
-public class Student {
+public abstract class Student {
     protected String name;
     protected String id;
+
+    public abstract String getSubject();
 
     public Student(String name, String id) {
         this.name = name;

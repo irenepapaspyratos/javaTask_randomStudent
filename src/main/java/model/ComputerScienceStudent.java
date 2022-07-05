@@ -8,7 +8,15 @@ public class ComputerScienceStudent extends Student{
         super(name, id);
         this.favoriteProgrammingLanguage = favoriteProgrammingLanguage;
     }
+    public ComputerScienceStudent(String name, String id) {
+        super(name, id);
+        this.favoriteProgrammingLanguage = "None";
+    }
 
+    @Override
+    public String getSubject() {
+        return "ComputerScience";
+    }
     @Override
     public String toString() {
         return "ComputerScienceStudent{" +
