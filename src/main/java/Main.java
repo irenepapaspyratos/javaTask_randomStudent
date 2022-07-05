@@ -12,11 +12,12 @@ public class Main {
         Student[] studentsArray = {study1, study2, study3, study4};
         StudentDB studentDb = new StudentDB (studentsArray);
 
-        StudentDb.add
-
-        System.out.println(studentDb.deleteStudent("f1"));
-        System.out.println();
         System.out.println(studentDb.randomStudent());
+        System.out.println(studentDb);
+        System.out.println(studentDb.deleteStudent("f1"));
+        System.out.println(studentDb);
+        System.out.println(studentDb.addStudent(new Student("Felix", "m3")));
+        System.out.println(studentDb);
     }
 
 }
