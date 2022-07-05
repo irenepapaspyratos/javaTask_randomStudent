@@ -6,7 +6,7 @@ public class StudentDB {
 
     private Student[] allStudents;
 
-    public StudentDB (Student[] allStudents) {
+    public StudentDB(Student[] allStudents) {
         this.allStudents = allStudents;
     }
 
@@ -15,10 +15,15 @@ public class StudentDB {
     }
 
     public Student randomStudent() {
-        int lowerBound = 0;
         int upperBound = this.allStudents.length;
-        int random = (int)(Math.random() * upperBound - lowerBound) + lowerBound;
+        int random = (int) (Math.random() * upperBound);
         return this.allStudents[random];
+    }
+
+    public Student[] deleteStudent(String studentIdToDelete) {
+        this.allStudents = Arrays.stream(this.getAllStudents()).filter(student ->
+                student.getId() != studentIdToDelete).toArray(studentArray -> new Student[studentArray]);
+        return(this.allStudents);
     }
 
     @Override
