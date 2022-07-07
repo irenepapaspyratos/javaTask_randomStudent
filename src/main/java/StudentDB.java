@@ -1,48 +1,46 @@
-import java.util.Arrays;
-
 import model.Student;
+
+import java.util.Map;
 
 public class StudentDB {
 
-    private Student[] allStudents;
+    private Map<String, Student> allStudents;
 
-    public StudentDB(Student[] allStudents) {
+    public StudentDB(Map<String, Student> allStudents) {
         this.allStudents = allStudents;
     }
 
-    public Student[] getAllStudents() {
+    public Map<String, Student> getAllStudents() {
         return allStudents;
     }
 
     public Student randomStudent() {
-        int upperBound = allStudents.length;
+        int upperBound = allStudents.size();
         int random = (int) (Math.random() * upperBound);
-        return allStudents[random];
+        int counter = 0;
+        for (Student student : allStudents.values()) {
+            if (counter == random) return student;
+            counter++;
+        }
+        return null;
     }
 
-    public Student[] deleteStudent(String studentIdToDelete) {
-        allStudents =
-                Arrays
-                        .stream(this.getAllStudents())
-                        .filter(student -> student.getId() != studentIdToDelete)
-                        .toArray(curry -> new Student[curry]);
+    public Map<String, Student> deleteStudent(String studentIdToDelete) {
+        Student deletedStudent = allStudents.remove(studentIdToDelete);
+        System.out.println("Successfully deleted: " + deletedStudent);
         return (allStudents);
     }
 
-    public Student[] addStudent(Student student) {
-        Student[] newArray = new Student[allStudents.length + 1];
-        int counter = 0;
-        for (Student abc : allStudents) {
-            newArray[counter] = abc;
-            counter++;
-        }
-        newArray[counter] = student;
-        allStudents = newArray;
+    public Map<String, Student> addStudent(Student student) {
+        allStudents.put(student.getId(), student);
+        System.out.println("Successfully added: " + student);
         return (allStudents);
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(allStudents);
+        return "StudentDB{" +
+                "allStudents=" + allStudents +
+                '}';
     }
 }
